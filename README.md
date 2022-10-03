@@ -22,7 +22,7 @@ Member4
 | Disscussion | Done |
 | Planning | Done |
 | File Structure | Done |
-| Task Assigning | 50% |
+| Task Assigning | 100% |
 | Basic Preperations | Done |
 
 
