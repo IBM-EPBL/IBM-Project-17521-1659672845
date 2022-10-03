@@ -10,7 +10,7 @@
 
 ```sh
 Prakash - Team Lead
-Member1
+Suriya narayanan - Team Member
 Member2
 Member3
 Member4
