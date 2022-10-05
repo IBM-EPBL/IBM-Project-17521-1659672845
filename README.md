@@ -11,7 +11,7 @@
 ```sh
 Prakash - Team Lead
 Suriya narayanan - Team Member
-Member2
+Gopinathan - Team Member
 Member3
 Member4
 ```
