@@ -17,13 +17,13 @@ Member4
 ```
 
 # **⌛Shedules**
-| Task | Status    | f
-| :-------- | :------- |a
-| Disscussion | Done |
-| Planning | Done |
-| File Structure | Done |
-| Task Assigning | 100% |
-| Basic Preperations | Done |
+| Task | Status    ||| Member | Completion|
+| :-------- | :------- ||| :------- | :------- |
+| Disscussion | Done ||| Prakash | 60% |
+| Planning | Done ||| Saravanan | 10% |
+| File Structure | Done ||| Kamlesh | 0%|
+| Task Assigning | 100% ||| Surya Narayanan | 5% |
+| Basic Preperations | Done ||| Gopinathan | 0% |
 
 
 # **📜PROJECT DESCRIPTION:**          
