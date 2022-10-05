@@ -17,8 +17,8 @@ Member4
 ```
 
 # **⌛Shedules**
-| Task | Status    |
-| :-------- | :------- |
+| Task | Status    | f
+| :-------- | :------- |a
 | Disscussion | Done |
 | Planning | Done |
 | File Structure | Done |
