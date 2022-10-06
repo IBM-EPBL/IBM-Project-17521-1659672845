@@ -23,7 +23,7 @@ kamaleshnathiya-Team Member
 | Planning | Done |-|-| Saravanan | 10% |
 | File Structure | Done |-|-| Kamlesh | 0%|
 | Task Assigning | 100% |-|-| Surya Narayanan | 5% |
-| Basic Preperations | Done |-|-| Gopinathan | 5% |
+| Basic Preperations | Done |-|-| Gopinathan | 10% |
 
 
 # **📜PROJECT DESCRIPTION:**          
