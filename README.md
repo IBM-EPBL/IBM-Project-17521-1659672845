@@ -21,9 +21,9 @@ Team Member 4
 | :-------- | :------- |-|-| :------- | :------- |
 | Disscussion | Done |-|-| Prakash | 60% |
 | Planning | Done |-|-| Saravanan | 10% |
-| File Structure | Done |-|-| Kamlesh | 0%|
-| Task Assigning | 100% |-|-| Surya Narayanan | 10% |
-| Basic Preperations | Done |-|-| Gopinathan | 10% |
+| File Structure | Done |-|-| Kamlesh | 3%|
+| Task Assigning | 100% |-|-| Surya Narayanan | 13% |
+| Basic Preperations | Done |-|-| Gopinathan | 15% |
 
 
 # **📜PROJECT DESCRIPTION:**          
