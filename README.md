@@ -22,7 +22,7 @@ Team Member 4
 | Disscussion | Done |-|-| Prakash | 60% |
 | Planning | Done |-|-| Saravanan | 15% |
 | File Structure | Done |-|-| Kamlesh | 3%|
-| Task Assigning | 100% |-|-| Surya Narayanan | 20% |
+| Task Assigning | 100% |-|-| Surya Narayanan | 30% |
 | Basic Preperations | Done |-|-| Gopinathan | 45% |
 
 
