@@ -1,0 +1,19 @@
+import paho.mqtt.client as paho
+import time
+import random
+
+def on_publish(client,userdata,mid):
+    print ('published')
+
+
+client = paho.Client()
+client.on_publish=on_publish
+client.connect('broker.mqttdashboard.com',1883)
+client.loop_start()
+
+
+while True:
+    tem= random.randint(1,100)
+    (rc,mid)=client.publish("ibm2",str(tem),qos=1)
+    print(tem)
+    time.sleep(10)
