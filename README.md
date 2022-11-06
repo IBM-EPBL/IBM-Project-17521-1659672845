@@ -13,7 +13,7 @@ Prakash - Team Lead
 Suriya narayanan - Team Member
 Gopinathan - Team Member
 Saravanan A-Team Member
-Kamalesh.M - Team Member source organizer
+Kamalesh.M - Team Member (source organizer)
 ```
 
 # **⌛Shedules**
