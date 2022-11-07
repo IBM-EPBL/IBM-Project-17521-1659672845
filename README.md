@@ -20,7 +20,7 @@ Kamalesh.M - Team Member (source organizer)
 | Task | Status    |-|-| Member | Completion|
 | :-------- | :------- |-|-| :------- | :------- |
 | Disscussion | Done |-|-| Prakash | 60% |
-| Planning | Done |-|-| Saravanan | 15% |
+| Planning | Done |-|-| Saravanan | 97% |
 | File Structure | Done |-|-| Kamalesh | 95%|
 | Task Assigning | 100% |-|-| Surya Narayanan | 30% |
 | Basic Preperations | Done |-|-| Gopinathan | 45% |
