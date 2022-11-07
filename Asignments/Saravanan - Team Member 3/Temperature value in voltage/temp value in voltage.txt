@@ -1,0 +1,52 @@
+[09:44, 9/12/2022] ??°?????????????programer: // C++ code
+//
+void setup()
+{
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  double a=analogRead(A1);
+  Serial.print("Adc Value:");
+  Serial.println(a);
+  double v= a/1024;
+  double tvolt= v*5;
+  Serial.print("temp value voltage:");
+  Serial.println(tvolt);
+  double o = tvolt-0.5;
+  double t= o*100;
+  Serial.print ("Temperature is :");
+  Serial.println(t);
+}
+[09:45, 9/12/2022] ??°?????????????programer: // C++ code
+//
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(9,OUTPUT);
+}
+
+void loop()
+{
+  double a=analogRead(A1);
+  Serial.print("Adc Value:");
+  Serial.println(a);
+  double v= a/1024;
+  double tvolt= v*5;
+  Serial.print("temp value voltage:");
+  Serial.println(tvolt);
+  double o = tvolt-0.5;
+  double t= o*100;
+  Serial.print ("Temperature is :");
+  Serial.println(t);
+  if (t>=50)
+  {
+  digitalWrite(9,HIGH);
+  }
+  else
+  {
+    digitalWrite(9,LOW);
+  }
+  
+}
