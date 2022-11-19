@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Garbage Management System</title>
+	<link rel="icon" type="image/x-icon" href="/Images/DUMPSTER.png">
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+	<script>
+		var firebaseConfig =
+		{
+			apiKey: "AIzaSyB9ysbnaWc3IyeCioh-aJQT_UCMd5CBFeU",
+			authDomain: "fir-test-923b4.firebaseapp.com",
+			databaseURL: "https://fir-test-923b4-default-rtdb.firebaseio.com",
+			projectId: "fir-test-923b4",
+			storageBucket: "fir-test-923b4.appspot.com",
+			messagingSenderId: "943542145393",
+			appId: "1:943542145393:web:9b5ec7593e6a3cbd7966d0",
+			measurementId: "G-BN7JNX1Q7B"
+		};
+		firebase.initializeApp(firebaseConfig)
+	</script>
+	<script defer src="database.js"></script>
+</head>
+
+<body style="background-color:#1F1B24;">
+	<script src="map.js"></script>
+
+	
+		<div id="map_container">
+			<h1 id="live_location_heading" >LIVE LOCATION</h1>
+			<div id="map"></div>
+			<div id="alert_msg">ALERT MESSAGE!</div>
+    </div>
+	</div>
+<center><a href="https://www.google.com/maps/place/C.+Abdul+Hakeem+College+of+Engineering+%26+Technology/@12.9074795,79.2936221,17z/data=!3m1!4b1!4m5!3m4!1s0x3bad35d34059d16f:0xb443fab6e00b313f!8m2!3d12.9074795!4d79.2958108" 
+  type="button" class="btn btn-dark">DUMPSTER</a></center>
+    
+	<script
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBLyWj-3FWtCbCXGW3ysEiI2fDfrv2v0Q&callback=myMap"></script></div>
+</body>
+
+</html>

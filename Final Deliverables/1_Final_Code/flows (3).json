@@ -1,0 +1,987 @@
+[
+    {
+        "id": "6ed1189c17ed0439",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ce1790a002f55f3a",
+        "type": "ibmiot in",
+        "z": "6ed1189c17ed0439",
+        "authentication": "apiKey",
+        "apiKey": "bf9996433728395e",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "BIN1ID",
+        "applicationId": "",
+        "deviceType": "BIN1",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 250,
+        "y": 180,
+        "wires": [
+            [
+                "b678812da97d9d1a",
+                "f720c62cad238799",
+                "35b263513ea4f373"
+            ]
+        ]
+    },
+    {
+        "id": "b678812da97d9d1a",
+        "type": "debug",
+        "z": "6ed1189c17ed0439",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "f720c62cad238799",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "Distance 1",
+        "func": "msg.payload = msg.payload.dist\nglobal.set('d',msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 220,
+        "wires": [
+            [
+                "5dcbaf252dc78b06",
+                "b678812da97d9d1a"
+            ]
+        ]
+    },
+    {
+        "id": "35b263513ea4f373",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "LOAD cell 1",
+        "func": "msg.payload =msg. payload.load\nglobal.set('l', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 430,
+        "y": 300,
+        "wires": [
+            [
+                "b7ac8ba401c6cab8"
+            ]
+        ]
+    },
+    {
+        "id": "5dcbaf252dc78b06",
+        "type": "ui_gauge",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "group": "f3b64a4198b3c46c",
+        "order": 1,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Distance 1",
+        "label": "Cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 710,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b7ac8ba401c6cab8",
+        "type": "ui_gauge",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "group": "f3b64a4198b3c46c",
+        "order": 2,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "LOAD CELL 1",
+        "label": "KG",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 720,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5de18859cabb1a5d",
+        "type": "http in",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "url": "/sensor",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 420,
+        "wires": [
+            [
+                "80650c336af78c61"
+            ]
+        ]
+    },
+    {
+        "id": "5ab7d1be9c4e2831",
+        "type": "http response",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 710,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "80650c336af78c61",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "function 1",
+        "func": "msg.payload = { \"dist\": global.get('d'), \"load\": global.get('l')}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 420,
+        "wires": [
+            [
+                "5ab7d1be9c4e2831"
+            ]
+        ]
+    },
+    {
+        "id": "e0022c1a3e189dea",
+        "type": "ibmiot in",
+        "z": "6ed1189c17ed0439",
+        "authentication": "apiKey",
+        "apiKey": "bf9996433728395e",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "BIN2ID",
+        "applicationId": "",
+        "deviceType": "BIN2",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 250,
+        "y": 500,
+        "wires": [
+            [
+                "2a22e946c6d5f734",
+                "233a55d8b0e40a46",
+                "a5ed197df7ced05a"
+            ]
+        ]
+    },
+    {
+        "id": "233a55d8b0e40a46",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "Distance 2",
+        "func": "msg.payload = msg.payload.dist\nglobal.set('d',msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 540,
+        "wires": [
+            [
+                "2a22e946c6d5f734",
+                "9b44a1863803e38a"
+            ]
+        ]
+    },
+    {
+        "id": "a5ed197df7ced05a",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "LOAD cell 2",
+        "func": "msg.payload =msg. payload.load\nglobal.set('l', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 600,
+        "wires": [
+            [
+                "40ccb32035a0f55f"
+            ]
+        ]
+    },
+    {
+        "id": "2a22e946c6d5f734",
+        "type": "debug",
+        "z": "6ed1189c17ed0439",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 650,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "9b44a1863803e38a",
+        "type": "ui_gauge",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "group": "f3b64a4198b3c46c",
+        "order": 4,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Distance 2",
+        "label": "Cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 710,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "40ccb32035a0f55f",
+        "type": "ui_gauge",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "group": "f3b64a4198b3c46c",
+        "order": 5,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "LOAD CELL 2",
+        "label": "KG",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 720,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "60298a7291818343",
+        "type": "http in",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "url": "/sensor",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 660,
+        "wires": [
+            [
+                "616151913ceb65e2"
+            ]
+        ]
+    },
+    {
+        "id": "616151913ceb65e2",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "function 2",
+        "func": "msg.payload = { \"dist\": global.get('d'), \"load\": global.get('l')}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 660,
+        "wires": [
+            [
+                "332391e22b2af8e8"
+            ]
+        ]
+    },
+    {
+        "id": "332391e22b2af8e8",
+        "type": "http response",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "4d33e05e616db2bb",
+        "type": "ibmiot in",
+        "z": "6ed1189c17ed0439",
+        "authentication": "apiKey",
+        "apiKey": "bf9996433728395e",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "BIN3ID",
+        "applicationId": "",
+        "deviceType": "BIN3",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 250,
+        "y": 760,
+        "wires": [
+            [
+                "c7ddb56ba52e82df",
+                "fbf611802e58a9d1",
+                "231892da1f5ab0fb"
+            ]
+        ]
+    },
+    {
+        "id": "1c11c86fbb36f097",
+        "type": "http in",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "url": "/sensor",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 190,
+        "y": 900,
+        "wires": [
+            [
+                "cdea8fe7bd7a2f5e"
+            ]
+        ]
+    },
+    {
+        "id": "c49cd92e337f886b",
+        "type": "debug",
+        "z": "6ed1189c17ed0439",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "c7ddb56ba52e82df",
+        "type": "debug",
+        "z": "6ed1189c17ed0439",
+        "name": "msg.payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "71be31afc89560dd",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "Distance 4",
+        "func": "msg.payload = msg.payload.dist\nglobal.set('d',msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 980,
+        "wires": [
+            [
+                "c49cd92e337f886b",
+                "b88ea394cc4571c3"
+            ]
+        ]
+    },
+    {
+        "id": "fbf611802e58a9d1",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "Distance 3",
+        "func": "msg.payload = msg.payload.dist\nglobal.set('d',msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 780,
+        "wires": [
+            [
+                "c7ddb56ba52e82df",
+                "240d2e6c8f487fd8"
+            ]
+        ]
+    },
+    {
+        "id": "231892da1f5ab0fb",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "LOAD cell 3",
+        "func": "msg.payload =msg. payload.load\nglobal.set('l', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 820,
+        "wires": [
+            [
+                "e18c17929284e061"
+            ]
+        ]
+    },
+    {
+        "id": "a0cbff62cdd2e77c",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "LOAD cell 4",
+        "func": "msg.payload =msg. payload.load\nglobal.set('l', msg.payload)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1020,
+        "wires": [
+            [
+                "c7a15e2a5bf9c2da"
+            ]
+        ]
+    },
+    {
+        "id": "cdea8fe7bd7a2f5e",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "function 3",
+        "func": "msg.payload = { \"dist\": global.get('d'), \"load\": global.get('l')}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 900,
+        "wires": [
+            [
+                "9bfb685be1503933"
+            ]
+        ]
+    },
+    {
+        "id": "9bfb685be1503933",
+        "type": "http response",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "240d2e6c8f487fd8",
+        "type": "ui_gauge",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "group": "f3b64a4198b3c46c",
+        "order": 15,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Distance 3",
+        "label": "Cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 830,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "b88ea394cc4571c3",
+        "type": "ui_gauge",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "group": "f3b64a4198b3c46c",
+        "order": 18,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "Distance 4",
+        "label": "Cm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 750,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "e18c17929284e061",
+        "type": "ui_gauge",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "group": "f3b64a4198b3c46c",
+        "order": 16,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "LOAD CELL 3",
+        "label": "KG",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 840,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "147146a0342debce",
+        "type": "ibmiot in",
+        "z": "6ed1189c17ed0439",
+        "authentication": "apiKey",
+        "apiKey": "bf9996433728395e",
+        "inputType": "evt",
+        "logicalInterface": "",
+        "ruleId": "",
+        "deviceId": "BIN4ID",
+        "applicationId": "",
+        "deviceType": "BIN4",
+        "eventType": "+",
+        "commandType": "",
+        "format": "json",
+        "name": "IBM IoT",
+        "service": "registered",
+        "allDevices": "",
+        "allApplications": "",
+        "allDeviceTypes": false,
+        "allLogicalInterfaces": "",
+        "allEvents": true,
+        "allCommands": "",
+        "allFormats": "",
+        "qos": 0,
+        "x": 230,
+        "y": 1000,
+        "wires": [
+            [
+                "71be31afc89560dd",
+                "a0cbff62cdd2e77c",
+                "c49cd92e337f886b"
+            ]
+        ]
+    },
+    {
+        "id": "c7a15e2a5bf9c2da",
+        "type": "ui_gauge",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "group": "f3b64a4198b3c46c",
+        "order": 19,
+        "width": 4,
+        "height": 4,
+        "gtype": "gage",
+        "title": "LOAD CELL 4",
+        "label": "KG",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 760,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "3cec67f2e3359287",
+        "type": "http in",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "url": "/sensor",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 1080,
+        "wires": [
+            [
+                "c08f7bb853942b70"
+            ]
+        ]
+    },
+    {
+        "id": "c08f7bb853942b70",
+        "type": "function",
+        "z": "6ed1189c17ed0439",
+        "name": "function 4",
+        "func": "msg.payload = { \"dist\": global.get('d'), \"load\": global.get('l')}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 1080,
+        "wires": [
+            [
+                "07773f295c5a783c"
+            ]
+        ]
+    },
+    {
+        "id": "07773f295c5a783c",
+        "type": "http response",
+        "z": "6ed1189c17ed0439",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 670,
+        "y": 1080,
+        "wires": []
+    },
+    {
+        "id": "517648d26c93720d",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 3,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "e3086afde0717b7f",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 6,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "329502bdd11bd52a",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 7,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "7321a3216f223378",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 8,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "f830dc54889698c4",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 9,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "3e4d0a1c6525c3dd",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 10,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "f5fa3cc71404c6c2",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 11,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "eacd5aaaa83c8e0a",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 12,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "e9c145684f7c3c5b",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 13,
+        "width": 24,
+        "height": 1
+    },
+    {
+        "id": "4bf3afc9ad5605e6",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 14,
+        "width": 24,
+        "height": 1
+    },
+    {
+        "id": "84a1cdcb1acbd2ce",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 17,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "8e3c9b05b4f4659f",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 20,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "d3debe038a3f028a",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 21,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "cdf1f0030c949ca8",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 22,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "28a4dbc012c368f4",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 23,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "bbd70391a5bc8257",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 24,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "b94286c6f5fc0e17",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 25,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "4dcd3b1b88e0508e",
+        "type": "ui_spacer",
+        "z": "6ed1189c17ed0439",
+        "name": "spacer",
+        "group": "f3b64a4198b3c46c",
+        "order": 26,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "bf9996433728395e",
+        "type": "ibmiot",
+        "name": "Gogul",
+        "keepalive": "60",
+        "serverName": "",
+        "cleansession": true,
+        "appId": "",
+        "shared": false
+    },
+    {
+        "id": "f3b64a4198b3c46c",
+        "type": "ui_group",
+        "name": "control",
+        "tab": "2b19469befff9adb",
+        "order": 2,
+        "disp": true,
+        "width": "24",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "2b19469befff9adb",
+        "type": "ui_tab",
+        "name": "control",
+        "icon": "control",
+        "disabled": false,
+        "hidden": false
+    }
+]
